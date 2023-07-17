@@ -8,8 +8,20 @@
 import SwiftUI
 
 struct CreateView: View {
+    @Environment(\.dismiss) var dismiss
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List{
+            TextField("Name",text:.constant(""))
+            DatePicker("choose a date",
+                      selection:.constant(.now))
+            Toggle("important?",isOn:.constant(false))
+                      Button("Create"){
+                       dismiss()
+            }
+
+        }
+        navigationTitle("create t0d0")
     }
 }
 
